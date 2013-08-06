@@ -935,5 +935,4 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-# git proxy
-export https_proxy="http://fanc:ZAq~1234@rnoisa.is.ad.igt.com:9000/"
+#sudo mount.vboxsf Diablo_III /mnt/Diablo_III

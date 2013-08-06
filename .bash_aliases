@@ -4,6 +4,8 @@
 alias gc='git commit -v -a'
 alias gb='git branch -v'
 alias st='git status -sb'
+alias gd='git diff'
+alias gdh='git diff HEAD --'
 
 function gco {
 	if [ $# -eq 0 ]; then
@@ -21,7 +23,7 @@ function gco {
 ########
 #
 alias cdd='cd /mnt/Development/Games/Game-001RN5'
-alias cdw='cd /mnt/log/1307'
+alias cdw='cd /mnt/log/1308'
 
 GAME_PREFIX="/mnt/Development/Games/Game-00"
 
