@@ -22,10 +22,11 @@ function gco {
 # misc #
 ########
 #
-alias cdd='cd /mnt/Development/Games/Game-001RN5'
-alias cdw='cd /mnt/log/1308'
+alias cdd='cd /mnt/Development/Games/Game-001RG2'
+alias cdw='cd /mnt/log/1309'
 
 GAME_PREFIX="/mnt/Development/Games/Game-00"
+GAME_PROJ_PREFIX="/mnt/Development/projects/Game-00"
 
 # calculate game workspace directory based on:
 #    1. current directory
@@ -38,6 +39,28 @@ function dg {
 
 	if [ "$PWD" != "$(pwd | grep "$GAME_PREFIX")" ]; then
 		echo "${GAME_PREFIX}$1"
+		return
+	fi
+
+	PREFIX=$(pwd | sed "s/Game-00.*/Game-00/")
+	POSTFIX=$(pwd | sed "s/.*Game-00[^\/]*//")
+
+	echo "${PREFIX}$1${POSTFIX}"
+	return
+}
+
+
+# calculate game project workspace directory based on:
+#    1. current directory
+#    2. game id
+function dp {
+	if [ $# -eq 0 ]; then
+		echo "No Input"
+		return
+	fi
+
+	if [ "$PWD" != "$(pwd | grep "$GAME_PROJ_PREFIX")" ]; then
+		echo "${GAME_PROJ_PREFIX}$1"
 		return
 	fi
 
@@ -85,6 +108,23 @@ function cdg {
 	fi
 
 	NEW_PATH=$(dg "$1")
+
+	echo "$NEW_PATH"
+
+	if [ -d "$NEW_PATH" ]; then
+		cd $NEW_PATH
+	else
+		echo "Invalid Input"
+	fi
+}
+
+
+# cd to game project workspace based on:
+#   1. current dir.
+#   2. game id provided.
+function cdp { #Precondition1 if [ $# -eq 0 ]; then cdd	return fi #Precondition2, should already cd to a dir with GAME_PREFIX if [ "$PWD" != "$(pwd | grep "$GAME_PROJ_PREFIX")" ]; then cd /mnt/Development/projects/Game-001RG2 fi
+
+	NEW_PATH=$(dp "$1")
 
 	echo "$NEW_PATH"
 

@@ -917,7 +917,7 @@ complete -F _killall killall killps
 
 
 # Alias Definition
-alias cdruby='cd "/home/luckyvan/Workspace/Ruby"'
+alias cdruby='cd "/home/luckyvan/Workspace/ruby_tools/ruby_tools/"'
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
@@ -928,11 +928,14 @@ fi
 # sh-shell:bash
 # End:
 
-PATH=~/Workspace/Ruby/bin:$PATH
+PATH=~/Workspace/ruby_tools/bin:$PATH
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-#sudo mount.vboxsf Diablo_III /mnt/Diablo_III
+# git proxy
+export https_proxy="http://fanc:ZaQ\`1234@rnoisa.is.ad.igt.com:9000/"
+export http_proxy="http://fanc:ZaQ\`1234@rnoisa.is.ad.igt.com:9000/"
+PATH=/home/luckyvan/Workspace/ruby_tools/bin/:$PATH
