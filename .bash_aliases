@@ -7,6 +7,29 @@ alias st='git status -sb'
 alias gd='git diff'
 alias gdh='git diff HEAD --'
 
+function gf {
+      while true
+      do
+         git fetch origin
+         if [ $? -eq 0 ]; then
+             break
+         fi
+         echo "fetch fail"
+      done
+}
+
+
+function gp {
+      while true
+      do
+         git push origin
+         if [ $? -eq 0 ]; then
+             break
+         fi
+         echo "push fail"
+      done
+}
+
 function gco {
 	if [ $# -eq 0 ]; then
 		git checkout master
@@ -134,3 +157,5 @@ function cdp { #Precondition1 if [ $# -eq 0 ]; then cdd	return fi #Precondition2
 		echo "Invalid Input"
 	fi
 }
+
+
